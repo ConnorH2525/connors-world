@@ -366,15 +366,15 @@ const LEVELS = [
     stages: [
       {
         code: '1-1', name: 'Challenge 1: a new operations platform',
-        challenge: 'The practice was running projects on Smartsheet, with resourcing done at workstage level and no clear view of which deliverables were eating into profit. They also needed visibility into their utilisation for up to a year ahead to inform timelines for new work and spot quiet periods. Their subscription was due to expire, which set a hard one-month go-live deadline once development was complete.',
+        challenge: 'The practice was running projects on Smartsheet, with resourcing done at workstage level and no clear view of which deliverables were eating into profit. They also needed visibility into their utilisation for up to a year ahead to inform timelines for new work and spot quiet periods. Their Smartsheet subscription was due to expire, which set a hard one-month go-live deadline once development was complete.',
         did: [
           'Ran discovery across four departments: Business Development, Project Managers, Design, and Studio Management',
           'Scoped with MoSCoW to agree requirements, then delivered in sprints, adjusting the scope based on feedback after each one',
           'Built a Notion platform covering project management, resource management, studio finance, business development and operations',
-          'Automated the creation of deliverables for new projects, based on five different templates',
+          'Automated the creation of workstages and deliverables for new projects, based on five different templates',
           'Provided change management to help with the adoption of new processes \u2013 such as moving from resourcing at workstage level down to individual tasks',
           'Set up access control across three permission levels',
-          'Got the full team live ahead of the one-month deadline through online workshops and training guides',
+          'Ensured the system was adopted and the full team were live ahead of the one-month deadline, through online workshops and training guides',
         ],
         results: [
           ['2 months', 'to recover the system cost after onboarding, by surfacing deliverables that kept running over budget so they could be re-budgeted'],
@@ -391,10 +391,10 @@ const LEVELS = [
       },
       {
         code: '1-2', name: 'Challenge 2: automated revenue reporting',
-        challenge: 'The studio manager spent hours each month manually pulling reports of time spent on each project stage to work out how much revenue to recognise.',
+        challenge: 'The studio manager spent 6+ hours each month manually pulling reports of time spent on each project stage to work out how much revenue to recognise.',
         did: [
-          'Ran discovery to understand the reporting process and map requirements',
-          'Built an automation in n8n, triggered by a button in Notion via webhook, that calculates the revenue to be recognised for each invoice based on timesheets. It then writes the results back to Notion, where manual adjustments can still be made',
+          'Ran a discovery session to understand the reporting process and map requirements',
+          'Built an automation in n8n, triggered by a button in Notion via webhook, that calculates the revenue to be recognised for each invoice based on timesheets compared to budgets. It then writes the results back to Notion, where manual adjustments can still be made',
           'Built another button automation to export the final figures to a formatted spreadsheet in Google Drive, ready to be sent to the accountant',
         ],
         results: [['6 hrs/month', 'saved for the studio manager with an automated financial report']],
@@ -491,6 +491,8 @@ const PLACES = [
     blurb: 'Drop me a line. I\u2019m looking for a solutions, implementation or customer-facing technical role, and email is the quickest way to reach me.' },
   { id: 'noticeboard', name: 'LinkedIn', sprite: 'noticeboard', kind: 'linkedin', logo: 'linkedin',
     blurb: 'Everything I\u2019ve worked on is on LinkedIn. Would love to connect.' },
+  { id: 'pitch', name: 'Outdoors', sprite: 'ball', sub: 'Off the clock',
+    blurb: 'When I\u2019m not helping businesses with digital transformation, or listening to music, I enjoy football, running, climbing, and wild camping.' },
   { id: 'records', name: 'Record Hut', sprite: 'records', sub: 'Off the clock',
     blurb: 'Record collector and live music lover. I run an Instagram for sharing music and a weekly record club, and built the web app our members use to review each week\u2019s album.' },
 ];
@@ -518,6 +520,7 @@ const SPR = {"connor_idle": ["........................", "......................
 SPR.house_teal = SPR.house.map((r) => r.replace(/r/g, 't').replace(/R/g, 'T'));
 SPR.house_blue = SPR.house.map((r) => r.replace(/r/g, 'u').replace(/R/g, 'U'));
 SPR.house_brown = SPR.house.map((r) => r.replace(/r/g, 'n').replace(/R/g, 'N'));
+SPR.ball = ["........................", "........................", "........................", "........................", "........................", "........................", "..wwwwwwwwwwwwwwwwwww...", "..wGggGGggGwggGGggGGw...", "..wGggGGggGwggGGggGGw...", "..wwwwGGggGwggGGgwwww...", "..wGgwGGgwwwwwGGgwGGw...", "..wGgwGGgwGwgwGGgwGGw...", "..wGgwGGwgGwggwGgwGGw...", "..wGgwGGgwGwgwGGgwGGw...", "..wGgwGGgwwwwwGGgwGGw...", "..wwwwGGggGwggGGgwwww...", "..wGggGGggGwggGGggGGw...", "..wGggGGggGwggGGggGGw...", "..wwwwwwwwwwwwwwwwwww...", "........................", "........................", "........................", "........................", "........................"];
 const SPR_NAMES = Object.keys(SPR);
 const CELL = 24, PXT = 0.135;                       // tiles per sprite pixel
 function hexToRgb(h){ return [parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)]; }
@@ -567,7 +570,7 @@ const DESKTOP = {
     postbox:     { x: 12, y: 26.1, place: 'postbox', stand: [12, 26.7] },
     noticeboard: { x: 26, y: 25.9, place: 'noticeboard', stand: [26, 26.7] },
     records:     { x: 43.3, y: 22, place: 'records', stand: [43.3, 22.6] },
-    gym:         { x: 46.7, y: 22, decor: true },
+    pitch:       { x: 45.1, y: 7.2, place: 'pitch', stand: [45.1, 7.85] },
   },
   roads: [
     [[1, 14.5], [47, 14.5]],
@@ -607,7 +610,7 @@ const MOBILE = {
     postbox:     { x: 3,    y: 30.2, place: 'postbox', stand: [3, 30.7] },
     noticeboard: { x: 10,   y: 30.0, place: 'noticeboard', stand: [10, 30.7] },
     records:     { x: 3.3,  y: 41.4, place: 'records', stand: [3.3, 42] },
-    gym:         { x: 9.9,  y: 41.4, decor: true },
+    pitch:       { x: 9.9,  y: 37.5, place: 'pitch', stand: [9.9, 38.15] },
   },
   roads: [
     [[.4, 13.2], [12.6, 13.2]],
@@ -648,7 +651,7 @@ MOBILE.lamps = [];
   const r0 = M.river; M.river = (x) => r0(x) + dy; M.H += dy;
 })(MOBILE, 1.9, 6.5);
 let L = null;                                        // the active layout
-const INTERACTIVE = ['studio', 'tower', 'harbour', 'university', 'boutique', 'press', 'stage', 'postbox', 'noticeboard', 'records'];
+const INTERACTIVE = ['studio', 'tower', 'harbour', 'university', 'boutique', 'press', 'stage', 'postbox', 'noticeboard', 'records', 'pitch'];
 
 function segDist(px, py, ax, ay, bx, by){ const dx = bx-ax, dy = by-ay, l = dx*dx + dy*dy || 1; const t = Math.max(0, Math.min(1, ((px-ax)*dx + (py-ay)*dy)/l)); return Math.hypot(px - (ax + t*dx), py - (ay + t*dy)); }
 const roadDist = (x, y) => { let d = 1e9; for (const r of L.roads) d = Math.min(d, segDist(x, y, r[0][0], r[0][1], r[1][0], r[1][1])); return d; };
@@ -835,7 +838,7 @@ function buildBubbles(){
         <span class="tools">${m.tools.map(toolTag).join('')}</span></button>`;
     }
     const p = placeById(n.place);
-    if (k === 'records') return `<button type="button" class="bubble quiet" data-node="${k}">${esc(p.name)}</button>`;
+    if (k === 'records' || k === 'pitch') return `<button type="button" class="bubble quiet" data-node="${k}">${esc(p.name)}</button>`;
     const ow = ['university', 'boutique', 'press', 'stage'].includes(k) ? ' ow' : '';
     return `<button type="button" class="bubble${ow}" data-node="${k}">${p.logo && p.kind === 'linkedin' ? logo(p.logo, 16) : ''}${esc(p.name)}</button>`;
   }).join('');
@@ -909,7 +912,7 @@ function placeOverlays(){
   sign.style.left = Math.round(sp.x) + 'px'; sign.style.top = Math.round(sp.y) + 'px';
   sign.style.width = Math.round(L.sign.w*30) + 'px'; sign.style.transform = `scale(${k.toFixed(4)})`;
   document.querySelectorAll('.bubble').forEach((b) => {
-    const key = b.dataset.node, n = L.nodes[key], top = n.y - (BOX[nodeSprite(key)].bottom - BOX[nodeSprite(key)].top + 1)*PXT;
+    const key = b.dataset.node, n = L.nodes[key], top = key === 'pitch' ? L.pitch.y0 : n.y - (BOX[nodeSprite(key)].bottom - BOX[nodeSprite(key)].top + 1)*PXT;
     const p = pos(n.x, top - .15);
     b.style.left = Math.round(p.x) + 'px'; b.style.top = Math.round(p.y) + 'px';
     b.style.transform = `translate(-50%, -100%) scale(${k.toFixed(4)})`;
@@ -951,7 +954,7 @@ try { visited = new Set(JSON.parse(localStorage.getItem('cw-visited') || '[]').f
 function renderWorld(bump){
   const n = INTERACTIVE.length, v = visited.size, pct = Math.round(v/n*100);
   document.querySelectorAll('.pfill').forEach((f) => { f.style.width = pct + '%'; });
-  document.querySelectorAll('.ptext').forEach((t) => { const mini = !!t.closest('#mini'); t.textContent = v === n ? (mini ? 'All explored!' : `All ${n} explored!`) : (mini ? `${v}/${n}` : `${v} of ${n} buildings explored`); });
+  document.querySelectorAll('.ptext').forEach((t) => { const mini = !!t.closest('#mini'); t.textContent = v === n ? (mini ? 'All explored!' : `All ${n} explored!`) : (mini ? `${v}/${n}` : `${v} of ${n} places explored`); });
   document.querySelectorAll('.prog').forEach((pr) => pr.classList.toggle('done', v === n));
   if (bump) document.querySelectorAll('.pbar').forEach((b) => { b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); });
 }
@@ -1198,6 +1201,7 @@ function drawSprite(name, gx, gy, mirror = false, scale = 1){
   drawTile(g2w(gx, gy - size/2 + below), vec2(size), tileOf(name), undefined, 0, mirror);
 }
 function spriteHit(k, gx, gy){
+  if (k === 'pitch') return gx > L.pitch.x0 && gx < L.pitch.x1 && gy > L.pitch.y0 && gy < L.pitch.y1;
   const n = L.nodes[k], b = BOX[nodeSprite(k)], h = (b.bottom - b.top + 1)*PXT, w = SPRITE_TILES*.8;
   return gx > n.x - w/2 && gx < n.x + w/2 && gy > n.y - h && gy < n.y + .2;
 }
@@ -1312,7 +1316,8 @@ function gameRender(){
       drawRect(g2w(n.x, n.y + .05), vec2(3.8 + pulse*.3 + (hot ? .6 : 0), 1.05 + pulse*.1 + (hot ? .2 : 0)), rgb(c.glow[0], c.glow[1], c.glow[2], .25 + pulse*.15 + (hot ? .25 : 0)));
       drawRect(g2w(n.x, n.y + .05), vec2(3.3, .8), new Color().setHex(c.acc));
       drawRect(g2w(n.x, n.y + .05), vec2(2.9, .5), new Color().setHex(c.pad2));
-    } else if (hot) drawRect(g2w(n.x, n.y + .05), vec2(2.7, .85), rgb(1, 1, 1, .45 + pulse*.2));
+    } else if (hot && k === 'pitch'){ const P = L.pitch; drawRect(g2w((P.x0 + P.x1)/2, (P.y0 + P.y1)/2), vec2(P.x1 - P.x0 + .5, P.y1 - P.y0 + .5), rgb(1, 1, 1, .18 + pulse*.12)); }
+    else if (hot) drawRect(g2w(n.x, n.y + .05), vec2(2.7, .85), rgb(1, 1, 1, .45 + pulse*.2));
   }
 
   const items = [];
@@ -1323,6 +1328,7 @@ function gameRender(){
   const boatBob = reduceMotion ? 0 : Math.sin(time*1.8)*.08, boatDrift = reduceMotion ? 0 : Math.sin(time*.35)*.5;
   items.push({ y: L.boat.y, draw: () => drawSprite('boat', L.boat.x + (L.riverAxis === 'y' ? boatDrift : 0), L.boat.y + (L.riverAxis === 'x' ? boatDrift : 0) + boatBob) });
   for (const k in L.nodes){
+    if (k === 'pitch') continue;
     const n = L.nodes[k], hot = k === hoverKey, lift = hot && !reduceMotion ? Math.abs(Math.sin(time*6))*.15 : 0;
     items.push({ y: n.y, draw: () => drawSprite(nodeSprite(k), n.x, n.y - lift, false, hot ? 1.06 : 1) });
   }
